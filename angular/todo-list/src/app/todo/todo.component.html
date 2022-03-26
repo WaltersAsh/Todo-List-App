@@ -1,10 +1,13 @@
 <ul>
     <li *ngFor="let todo of todos">
         {{todo}}
+        <button type="button" (click)="removeTodo()">x</button>
     </li>
 </ul>
 
 <form (ngSubmit)="addTodo()">
     <input name="todotext" [(ngModel)]="todoText">
     <input type="submit" value="Add">
+    <br><br>
+    <input type="button" (click)="clearAllTodos()" value="Clear All">
 </form>

@@ -7,21 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  todos: string[] = [];
+  todos: any[] = [];
   todoText: string = '';
+  id: number = -1;
 
   constructor() { }
 
   ngOnInit(): void {
     const existingTodos = localStorage.getItem('todos');
     this.todos = JSON.parse(existingTodos as string) || [];
-    
   }
 
-  addTodo() {
+  addTodo(): void {
     this.todos.push(this.todoText);
     localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+
+  removeTodo(): void {
 
   }
 
+  clearAllTodos(): void {
+    localStorage.clear();
+    this.todos = [];
+    this.todoText = '';
+  }
 }
