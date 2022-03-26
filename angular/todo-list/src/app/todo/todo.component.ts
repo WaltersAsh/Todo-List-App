@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  todos: any[] = [];
+  todos: string[] = [];
   todoText: string = '';
-  id: number = -1;
 
   constructor() { }
 
@@ -23,8 +22,16 @@ export class TodoComponent implements OnInit {
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
-  removeTodo(): void {
-
+  removeTodo(todoToBeRemoved: string): void {
+    //this.todos = this.todos.filter(todo => todo !== todoText);
+    
+    let i: number;
+    for (i = 0; i < this.todos.length; i++) {
+      if (this.todos[i] === todoToBeRemoved) {
+        this.todos.splice(i, 1);
+      }
+    }
+    localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
   clearAllTodos(): void {
