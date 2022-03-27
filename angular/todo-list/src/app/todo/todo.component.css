@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+.todos {
+    font-family: "Raleway", font-serif;
+    text-decoration: none;
+}
+
+.todo-button {
+    background: transparent;
+    border: 0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form .todo-text-box {
+    color: #FFFFFF;
+    width: 80%;
+    border: 0;
+    border-bottom: 2px solid;
+    outline: 0;
+    font-size: 1.3rem;
+    padding: 7px 0;
+    background: transparent;
+}
+
+::placeholder {
+    color: #FFFFFF;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5em 3em;
+    border: 0.10em solid #FFFFFF;
+    margin: 0 0.5em 0.5em 0;
+    text-transform: uppercase;
+    color: #0A77A6;
+    text-align: center;
+    transition: all 0.15s;
+    cursor: pointer;
+}

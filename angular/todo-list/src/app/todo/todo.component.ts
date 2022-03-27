@@ -34,9 +34,24 @@ export class TodoComponent implements OnInit {
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
+  completeTodo(todoToBeCompleted: string): void {
+    let i: number;
+    for (i = 0; i < this.todos.length; i++) {
+      if (this.todos[i] === todoToBeCompleted) {
+        this.todos[i] = this.todos[i].split('')
+                                     .map(char => char + '\u0336')
+                                     .join('');      
+      }
+    }
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+
   clearAllTodos(): void {
     localStorage.clear();
     this.todos = [];
+  }
+
+  clearTextbox(): void {
     this.todoText = '';
   }
 }

@@ -1,13 +1,13 @@
-<ul>
-    <li *ngFor="let todo of todos">
+<ul class="todos">
+    <li *ngFor="let todo of todos" class="todo">
         {{todo}}
-        <button type="button" (click)="removeTodo(todo)">x</button>
+        <button type="button" class="todo-button" (click)="removeTodo(todo)">❌</button>
+        <button type="button" class="todo-button" (click)="completeTodo(todo)">✅</button>
     </li>
 </ul>
 
-<form (ngSubmit)="addTodo()">
-    <input name="todotext" [(ngModel)]="todoText">
-    <input type="submit" value="Add">
-    <br><br>
-    <input type="button" (click)="clearAllTodos()" value="Clear All">
+<form (ngSubmit)="addTodo()" class="form">
+    <input name="todotext" class="todo-text-box" placeholder="Enter your todo here!" [(ngModel)]="todoText" (keyup.enter)="clearTextbox()">
+    <input type="submit" class="button" id="add" value="Add">
+    <input type="button" class="button" id="clear" (click)="clearAllTodos()" value="Clear All">
 </form>
